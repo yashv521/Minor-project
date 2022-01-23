@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+	<div class="container">
+		<h1>Add New Student</h1>
+		<form  action="/placement" method="POST">
+		  <div class="mb-3 form-group">
+			<label for="title" class="form-label">StudentName</label>
+			<input type="text" class="form-control" name="title" placeholder="e.g. Raj" autofocus>
+		  </div>
+			<div class="mb-3 form-group">
+			<label for="description" class="form-label">Description</label>
+			<input type="text" class="form-control" name="description" placeholder="e.g. Job profile ">
+		  </div>
+			<div class="mb-3 form-group">
+			<label for="Emailid" class="form-label">Emailid</label>
+			<input type="text" class="form-control" name="Emailid" placeholder="e.g. xyz@gmail.com">
+		  </div>
+			<div class="mb-3 form-group">
+			<label for="linkedn" class="form-label">linkedn-id</label>
+			<input type="text" class="form-control" name="linkedn" placeholder="e.g. your ID">
+		  </div>
+		  <div class="mb-3 form-group col-3">
+			<label for="date" class="form-label">Date</label>
+			<input type="date" class="form-control" name="date">
+		  </div>
+			<div class="mb-3 form-group col-3">
+			<label for="genre" class="form-label">Company</label>
+			<select class="form-control" id="genre" name="genre">
+				<option disabled selected>--Choose Below--</option>
+				<option>Infosys</option>
+				<option>TCS</option>
+				<option>Cognizant</option>
+				<option>Zopsmart</option>
+				<option>Google</option>
+				<option>Amazon</option>
+				<option>Tesla</option>
+				<option>Byjus</option>
+				<option>Paytm</option>
+			</select>
+		  </div>
+			<div class="mb-3 form-group col-3">
+			<label for="batch" class="form-label">Batch</label>
+			<input type="number" class="form-control" name="batch" placeholder="e.g. 2020">
+		  </div>
+			<div class="mb-3 form-group form-check col-3">
+			<input type="checkbox" class="form-check-input" name="oncampus">
+			<label for="oncampus">ON-Campus??</label>
+			
+		  </div>
+		  <div class="mb-3 form-group">
+			<label for="image" class="form-label">Link to Image</label>
+			<input type="text" class="form-control" name="image_link" placeholder="https://www.myimage.com">
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	
+</div>
+<%- include("partials/footer") %>
+	

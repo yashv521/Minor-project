@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/placement">
+		<img src="/img/logoplace.png" alt="brand image" height="65" width="55">
+	  </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/placement">Placements</a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Companies
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/placement/genre/infosys">Infosys</a></li>
+            <li><a class="dropdown-item" href="/placement/genre/tcs">TCS</a></li>
+            <li><a class="dropdown-item" href="/placement/genre/cognizant">Cognizant</a></li>
+			<li><a class="dropdown-item" href="/placement/genre/zopsmart">Zopsmart</a></li>
+			<li><a class="dropdown-item" href="/placement/genre/google">Google</a></li>
+			<li><a class="dropdown-item" href="/placement/genre/amazon">Amazon</a></li>
+			<li><a class="dropdown-item" href="/placement/genre/tesla">Tesla</a></li>
+			 <li><a class="dropdown-item" href="/placement/genre/byjus">Byjus</a></li>
+       <li><a class="dropdown-item" href="/placement/genre/paytm">Paytm</a></li>
+			
+          </ul>
+        </li>
+		 <% if(user){ %>
+		<li class="nav-item">
+          <a class="nav-link" href="/placement/new">Add new Student Profile</a>
+        </li>
+		 <% } %>
+		  <% if(user){ %>
+		  	<li class="nav-item">
+			  <a class="nav-link" href="/logout">Log Out</a>
+			</li>
+			  
+		  <% } else { %>
+		  	<li class="nav-item">
+			  <a class="nav-link" href="/login">Log In</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="/signup">Sign Up</a>
+			</li>	  
+		  <% } %>
+		
+		 
+		  
+      </ul>
+      <form class="d-flex form-inline my-2 my-lg-0" action="/placement/search" method="GET">
+        <input class="form-control me-2 mr-sm-2" type="search" placeholder="Search" name="term" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

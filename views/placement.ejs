@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+		<div class = "container">
+			<div class="row mt-2">
+				<% placement.forEach(rest => { %>
+					<div class="card m-3">
+						<a href="/placement/<%= rest.id %>">
+							<img class = "card-img card-img-top" src="<%=rest.image_link%>" alt ="Student Image">
+						</a>
+						<h3 class="card-title mt-3"><%=rest.title%></h3>
+						<p class ="card-text mb-3 mx-3"><%=rest.description%></p>
+					</div>
+				<% }) %>
+			</div>
+			
+		</div>
+<%- include("partials/footer") %>
+	

@@ -1,0 +1,59 @@
+<%- include("partials/header") %>
+	<div class="container">
+		<!-- //info change -->
+		<h1>Edit Info</h1>
+		<form  action="/placement/<%= rest.id %>?_method=PUT" method="POST">
+		  <div class="mb-3 form-group">
+			<label for="title" class="form-label">Student Name</label>
+			<input type="text" class="form-control" name="title" value="<%=rest.title %>" autofocus>
+		  </div>
+			<div class="mb-3 form-group">
+			<label for="description" class="form-label">Description</label>
+			<input type="text" class="form-control" name="description" value="<%=rest.description %>">
+		  </div>
+			<div class="mb-3 form-group">
+			<label for="Emailid" class="form-label">Emailid</label>
+			<input type="text" class="form-control" name="Emailid" value="<%=rest.Emailid %>">
+		  </div>
+			<div class="mb-3 form-group">
+			<href for="linkedn-id" class="form-label">linkedn-id</href>
+			<input type="text" class="form-control" name="linkedn" value="<%=rest.linkedn %>">
+		  </div>
+		  <div class="mb-3 form-group col-3">
+			<label for="date" class="form-label">Date</label>
+			<input type="date" class="form-control" name="date" value="<%=rest.Date.toISOString().split('T')[0] %>">
+		  </div>
+			<div class="mb-3 form-group col-3">
+			<label for="genre" class="form-label">Company</label>
+			<select class="form-control" id="genre" name="genre">
+				<option disabled >--Choose Below--</option>
+				<option <%= rest.genre === 'infosys' ? 'selected': '' %>>Infosys</option>
+				<option <%= rest.genre === 'tcs' ? 'selected': '' %>>TCS</option>
+				<option <%= rest.genre === 'cognizant' ? 'selected':'' %>>Cognizant</option>
+				<option <%= rest.genre === 'zopsmart' ? 'selected':'' %>>Zopsmart</option>
+				<option <%= rest.genre === 'google' ? 'selected':'' %>>Google</option>
+				<option <%= rest.genre === 'amazon' ? 'selected':'' %>>Amazon</option>
+				<option <%= rest.genre === 'tesla' ? 'selected':'' %>>Tesla</option>
+				<option <%= rest.genre === 'byjus' ? 'selected':'' %>>Byjus</option>
+				<option <%= rest.genre === 'paytm' ? 'selected':'' %>>Paytm</option>
+			</select>
+		  </div>
+			<div class="mb-3 form-group col-3">
+			<label for="batch" class="form-label">Batch</label>
+			<input type="number" class="form-control" name="batch" value="<%=rest.batch %>">
+		  </div>
+			<div class="mb-3 form-group form-check col-3">
+			<input type="checkbox" class="form-check-input" name="oncampus" <%= rest.oncampus ? 'checked' : '' %>>
+			<label for="oncampus">ON-Campus??</label>
+			
+		  </div>
+		  <div class="mb-3 form-group">
+			<label for="image" class="form-label">Link to Image</label>
+			<input type="text" class="form-control" name="image_link" value="<%=rest.image_link %>">
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	
+</div>
+<%- include("partials/footer") %>
+	

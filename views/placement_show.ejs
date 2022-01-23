@@ -1,0 +1,86 @@
+<%- include("partials/header") %>
+
+<div class="container">
+	<div class=" row mt-4">
+		<div class="col-6 show_image-container">
+			<img src="<%= rest.image_link %>">
+		</div>
+		<div class="col-6 show_details-container">
+			<h1><%= rest.title %></h1>
+			<p><%= rest.description %></p>
+			<table class="table">
+			  <tbody>
+				<tr>
+				  <th scope="row">Emailid</th>
+				  <td><%= rest.Emailid %></td>
+				</tr>
+				<tr>
+				  <th scope="row">linkedn-id</th>
+				  <td><a href="<%= rest.linkedn %>" ><%= rest.linkedn %></a></td>
+				</tr>
+				<tr>
+				  <th scope="row">Date</th>
+				  <td><%= rest.Date %></td>
+				</tr>
+				<tr>
+				  <th scope="row">Company</th>
+				  <td><%= rest.genre %></td>
+				</tr>
+				<tr>
+				  <th scope="row">Batch</th>
+				  <td><%= rest.batch %></td>
+				</tr>
+				<tr>
+				  <th scope="row">On-campus??</th>
+				  <td><%= rest.oncampus %></td>
+				</tr>
+			  </tbody>
+			</table>	
+			<% if(user && user.username === rest.author.username ) {%>
+			 <a href="/placement/<%= rest._id %>/edit">
+				<button class="show_edit-button btn btn-outline-info btn-lg btn-block mb-2">Edit</button>	
+			</a>
+			<form action ="/placement/<%= rest._id %>?_method=DELETE" method="POST">
+				<button type="submit" class="show_edit-button btn btn-outline-danger btn-lg btn-block">Delete</button>
+			</form>
+			<% } %>
+		</div>
+	</div>
+	<div class="row show_comment-header mt-3">
+		COMMENT HEADER
+	</div>
+	<a href="/placement/<%= rest._id %>/comments/new">
+		<button class=" btn btn-success btn-lg mt-3 mb-4">
+			Add Comment
+		</button> 
+	</a>
+	<% comments.forEach((comment => { %>		
+		<div class="row show_comment-container py-2 border">
+			<div class="col-2 border-right my-auto">
+				<%= comment.user.username %>
+			</div>
+			<div class="col-2 border-right my-auto d-flex flex-wrap justify-content-center">
+				<% if(user && user.username === comment.user.username) {%>
+				<a class="btn btn-sm btn-success w-75 p-0 my-1" href="/placement/<%= rest._id %>/comments/<%= comment.id %>/edit">
+					Edit
+				</a>
+				<form class="w-75 my-1" action="/placement/<%= rest._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+					<button class="btn btn-sm btn-danger w-100 p-0">
+						Delete
+					</button>
+				</form>
+				<% } %>
+			</div>
+			
+			<div class="col-8 my-auto">
+				<%= comment.text %>
+			</div>
+		</div>
+		
+	<% })) %>
+	<div class="py-5">
+		
+	</div>
+	
+</div>
+<%- include("partials/footer") %>
